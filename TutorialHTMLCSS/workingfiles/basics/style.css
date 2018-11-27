@@ -1,8 +1,11 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0px auto;
+    width: 960px;
 }
 h1,h2,h3{
     color:brown
+    
 }
 ul{
     list-style-type: disc
@@ -22,16 +25,51 @@ a:hover
 nav ul 
 {
     list-style-type:none; 
+    padding:0;
 } 
 nav li 
 {
     display: inline;
+    float: left;
+    
 }
 nav a:link, nav a:visited
 {
     background-color: brown;
     color:white;
+    display: block;
+    width:160px;
+    text-align: center;
+    padding:10px 20px ;
+
 }
 nav a:hover{
     background-color: black;
+}
+
+aside{
+    width:280px;
+    float:right;
+    background-color: tan;
+    text-align: center;
+    font-weight: bold;
+    padding:20px;
+    margin-left: 20px;
+}
+
+.photo-left{
+    float:left;
+    margin-right:20px;
+}
+
+header {
+    background-image: url("coffeebean.jpg");
+    height:97px;
+    margin-bottom: 0px;
+}
+header h1{
+    color:RGBA(256,256,256,0.8);
+    margin-left: 50px;
+    margin-top: 50px;
+    
 }
