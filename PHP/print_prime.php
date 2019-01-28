@@ -1,18 +1,20 @@
 <?php
 function displayPrimeNo()
 {
-    $iNbrToCheckPrime = 0;
-    while (1==1)
+    /** @var  $numberToCheck  Number to be checked whether Prime or not*/
+    $numberToCheck = 0;
+    while (true)
     {
-        $iNbrToCheckPrime = $iNbrToCheckPrime + 1;
-        $iDividableCnt = 0;
-        for ($iDivisorNo = 1; $iDivisorNo <= $iNbrToCheckPrime; $iDivisorNo++) {
-            if ($iNbrToCheckPrime % $iDivisorNo == 0) {
-                $iDividableCnt++;
+        $numberToCheck ++;
+        $isDividable = false;
+        for ($divisorNumber = 2; $divisorNumber < $numberToCheck; $divisorNumber++) {
+            if ($numberToCheck % $divisorNumber == 0) {
+                $isDividable = true;
+                break;
             }
         }
-        if ($iDividableCnt == 2) {
-            echo $iNbrToCheckPrime." is Prime number \n";
+        if (!$isDividable ) {
+            echo $numberToCheck." is Prime number \n";
         }
     }
 }
