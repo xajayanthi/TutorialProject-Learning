@@ -1,25 +1,22 @@
 <?php
-function fn_display_prime_no()
+function displayPrimeNo()
 {
-
-  while(1==1)
-  {
-          $i=$i+1;
-          $ctr = 0;
-          for($j=1;$j<=$i;$j++)
-          {
-                if($i % $j==0)
-                {
-                      $ctr++;
-                }
-          }
-
-          if($ctr==2)
-          {
-               echo $i." is Prime \n";
-          }
-  }
+    $iNbrToCheckPrime = 0;
+    while (1==1)
+    {
+        $iNbrToCheckPrime = $iNbrToCheckPrime + 1;
+        $isDividableCnt = 0;
+        for ($iDivisorNo = 1; $iDivisorNo <= $iNbrToCheckPrime; $iDivisorNo++) {
+            if ($iNbrToCheckPrime % $iDivisorNo == 0) {
+                $isDividableCnt++;
+            }
+        }
+        if ($isDividableCnt == 2) {
+            echo $iNbrToCheckPrime." is Prime number \n";
+        }
+    }
 }
 
-fn_display_prime_no();
+displayPrimeNo();
+
 ?>
