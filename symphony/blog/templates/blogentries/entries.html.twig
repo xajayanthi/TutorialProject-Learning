@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My cool blog posts{% endblock %}
+
+{% block body %}
+
+    <h2>Interesting Contents here for you</h2>
+    <table>
+       <tbody>
+       <th>
+           <tr>
+               <td>ID</td>
+               <td>Author</td>
+               <td>BlogTitle</td>
+           </tr>
+       </th>
+           {% for Entry in Entry %}
+               <tr>
+                   <td>{{ Entry.id }}</td>
+                   <td>{{ Entry.author }}</td>
+                   <td>{{ Entry.BlogEntry }}</td>
+               </tr>
+           {% endfor %}
+       </tbody>
+    </table>
+
+
+{% endblock %}
