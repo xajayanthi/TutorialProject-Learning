@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Test Application{% endblock %}</title>
+</head>
+<body>
+<div id="header">
+    <h1>Welcome to our Blog</h1>
+</div>
+<div id="sidebar">
+    {% block sidebar %}
+        <ul>
+            <li><a href="/blog">Home</a></li>
+            <li><a href="/blogentries">BlogContents</a></li>
+        </ul>
+    {% endblock %}
+</div>
+
+<div id="content">
+    {% block body %}{% endblock %}
+</div>
+</body>
+</html>
