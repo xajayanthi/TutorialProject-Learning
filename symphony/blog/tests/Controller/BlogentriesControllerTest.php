@@ -22,5 +22,6 @@ Class BlogentriesControllerTest extends WebTestCase
         $client->request('GET', '/blogentries/');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertResponseIsSuccessful();
     }
 }
