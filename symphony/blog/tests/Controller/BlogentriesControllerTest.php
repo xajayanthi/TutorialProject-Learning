@@ -28,8 +28,23 @@ Class BlogentriesControllerTest extends WebTestCase
     public function testHeaderData(){
 
         $client = static::createClient();
+
         $client->request('GET', '/blogentries/');
+
         $this->assertSelectorTextContains('html h1', 'Welcome to our Blog');
         $this->assertSelectorTextContains('html h2', 'Blogentries index');
+    }
+
+    public function testCreateNewLink()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/blogentries/');
+
+        $link = $crawler
+            ->filter('a:contains("Create new")')
+//            ->eq(1) // select the second link in the list
+            ->link();
+
     }
 }
