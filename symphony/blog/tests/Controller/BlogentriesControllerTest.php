@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 Class BlogentriesControllerTest extends WebTestCase
 {
-    public function testShowIndex()
+    public function testIndex()
     {
         $client = static::createClient();
 
@@ -23,5 +23,13 @@ Class BlogentriesControllerTest extends WebTestCase
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertResponseIsSuccessful();
+    }
+
+    public function testHeaderData(){
+
+        $client = static::createClient();
+        $client->request('GET', '/blogentries/');
+        $this->assertSelectorTextContains('html h1', 'Welcome to our Blog');
+        $this->assertSelectorTextContains('html h2', 'Blogentries index');
     }
 }
