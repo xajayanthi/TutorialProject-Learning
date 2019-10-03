@@ -1,0 +1,11 @@
+{
+    "symfony/browser-kit": {
+        "version": "v4.3.4"
+    },
+    "symfony/css-selector": {
+        "version": "v4.3.4"
+    },
+    "symfony/dom-crawler": {
+        "version": "v4.3.4"
+    }
+}
