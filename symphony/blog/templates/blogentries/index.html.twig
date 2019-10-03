@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blogentries index{% endblock %}
+
+{% block body %}
+    <h1>Blogentries index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Blog_entry</th>
+                <th>Author</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for blogentry in blogentries %}
+            <tr>
+                <td>{{ blogentry.id }}</td>
+                <td>{{ blogentry.blogEntry }}</td>
+                <td>{{ blogentry.author }}</td>
+                <td>
+                    <a href="{{ path('blogentries_show', {'id': blogentry.id}) }}">show</a>
+                    <a href="{{ path('blogentries_edit', {'id': blogentry.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('blogentries_new') }}">Create new</a>
+{% endblock %}

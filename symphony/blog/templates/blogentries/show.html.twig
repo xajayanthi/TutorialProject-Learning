@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blogentries{% endblock %}
+
+{% block body %}
+    <h1>Blogentries</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ blogentry.id }}</td>
+            </tr>
+            <tr>
+                <th>Blog_entry</th>
+                <td>{{ blogentry.blogEntry }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ blogentry.author }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('blogentries_index') }}">back to list</a>
+
+    <a href="{{ path('blogentries_edit', {'id': blogentry.id}) }}">edit</a>
+
+    {{ include('blogentries/_delete_form.html.twig') }}
+{% endblock %}
