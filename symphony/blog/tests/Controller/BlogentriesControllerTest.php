@@ -22,6 +22,7 @@ Class BlogentriesControllerTest extends WebTestCase
         $client->request('GET', '/blogentries/');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
         $this->assertResponseIsSuccessful();
     }
 
@@ -32,19 +33,22 @@ Class BlogentriesControllerTest extends WebTestCase
         $client->request('GET', '/blogentries/');
 
         $this->assertSelectorTextContains('html h1', 'Welcome to our Blog');
+
         $this->assertSelectorTextContains('html h2', 'Blogentries index');
     }
 
-    public function testCreateNewLink()
-    {
+    public function testShow(){
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/blogentries/');
 
-        $link = $crawler
-            ->filter('a:contains("Create new")')
-//            ->eq(1) // select the second link in the list
-            ->link();
+//        $link = $crawler->selectLink("show")->link();
+        $link = $crawler->filter('a:contains("show")')->eq(0)->link();
 
+        $crawler = $client->click($link);
+
+        $this->assertEquals(3, $crawler->filter('th')->count());
     }
+
+
 }
