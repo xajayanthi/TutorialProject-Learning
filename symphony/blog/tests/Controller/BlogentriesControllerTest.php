@@ -19,7 +19,7 @@ Class BlogentriesControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/blogentries/');
+        $client->request('GET', '/blogentries/new');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
@@ -50,5 +50,32 @@ Class BlogentriesControllerTest extends WebTestCase
         $this->assertEquals(3, $crawler->filter('th')->count());
     }
 
+    /**
+     * @dataProvider provideUrls
+     */
+    public function testPageIsSuccessful($url)
+    {
+        $client = self::createClient();
+        $client->request('GET', $url);
 
+        $this->assertTrue($client->getResponse()->isSuccessful());
+    }
+
+    public function provideUrls()
+    {
+        return [
+            ['/blog'],
+            ['/blogentries/'],
+            // ...
+        ];
+    }
+
+//   public function testEditForm(){
+//
+//       $client = static::createClient();
+//
+//       $form=$crawler = $client->request('GET', '/blogentries/new')->selectButton("Save")->form();
+//
+//       $crawler = $client->submit($form);
+//   }
 }
